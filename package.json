@@ -1,0 +1,24 @@
+{
+  "name": "hostmate",
+  "version": "1.0.0",
+  "description": "Hostmate is a full-stack web application for booking and hosting vacation rentals. It enables users to discover unique stays, list properties, and manage bookings through a clean and intuitive interface.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Abhijeet83193/Hostmate.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Abhijeet83193/Hostmate/issues"
+  },
+  "homepage": "https://github.com/Abhijeet83193/Hostmate#readme",
+  "dependencies": {
+    "express": "^5.1.0",
+    "mongoose": "^8.15.2"
+  }
+}
