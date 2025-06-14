@@ -24,15 +24,22 @@ async function main(){
 //Index Route 
 app.get("/listings", async (req, res) => {
     const allListings = await Listing.find({});
-    res.render("listings/index", { allListings });
+    res.render("listings/index.ejs", { allListings });
+});
+
+//New Route
+app.get("/listings/new", async (req, res) => {
+    res.render("listings/new.ejs");
 });
 
 //Show Route
 app.get("/listings/:id", async (req, res) => {
     let {id} = req.params;
     const listing = await Listing.findById(id);
-    res.render("Listings/show", { listing });
+    res.render("Listings/show.ejs", { listing });
 });
+
+
 
 // app.get("/testListing", async (req, res) => {
 //     let sampleListing  = new Listing({
