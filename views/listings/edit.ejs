@@ -6,7 +6,7 @@
     <title>Hostmate</title>
 </head>
 <body>
-    <form>
+    <form method="POST" action="/listings/<%= listing._id %>">
         <h3>Create a New Listing</h3>
         <input name="listing[title]" value="<%= listing.title %>" type="text">
         <br><br>
