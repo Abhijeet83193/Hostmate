@@ -29,6 +29,7 @@ async function main(){
 //Index Route 
 app.get("/listings", async (req, res) => {
     const allListings = await Listing.find({});
+    console.log("First listing image:", allListings[0]?.image);
     res.render("listings/index.ejs", { allListings });
 });
 
