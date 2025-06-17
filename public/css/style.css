@@ -101,7 +101,14 @@ body {
     background-color: white;
 }
 
+/* new page */
 .add-btn {
+    background-color:  #1997a0 !important;
+    border: none !important;
+}
+
+/* edit page */
+.edit-btn {
     background-color:  #1997a0 !important;
     border: none !important;
 }
