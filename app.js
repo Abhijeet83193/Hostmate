@@ -7,6 +7,7 @@ const path = require("path");
 const ejs = require("ejs");
 const methodOverride =  require("method-override");
 const ejsMate = require("ejs-mate");
+const wrapAsync = require("./utils/wrapAsync.js");
 
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
@@ -46,14 +47,14 @@ app.get("/listings/:id", async (req, res) => {
 });
 
 //Create Route
-app.post("/listings", async (req, res) => {
+app.post("/listings", wrapAsync (async (req, res, next) => {
     const newListing = new Listing(req.body.listing);
-     if (!newListing.image.url || newListing.image.url.trim() === "") {
+    if (!newListing.image.url || newListing.image.url.trim() === "") {
             newListing.image.url = "https://images.unsplash.com/photo-1625505826533-5c80aca7d157?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fGdvYXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60";
         }
     await newListing.save();
     res.redirect("/listings");
-});
+}));
 
 //Edit Route 
 app.get("/listings/:id/edit", async (req, res) => {
@@ -75,6 +76,10 @@ app.delete("/listings/:id", async (req, res) => {
     let deletedListing = await Listing.findByIdAndDelete(id);
     console.log(deletedListing);
     res.redirect("/listings");
+});
+
+app.use((err, req, res, next) => {
+    res.send("something went wrong!");
 });
 
 app.listen(8080, () => {
