@@ -17,7 +17,7 @@
 
         <br>
 
-        
+        <% if(currUser && listing.owner._id.equals(currUser._id)) { %>
         <div class="btns">
             <a href="/listings/<%= listing._id %>/edit" class="btn btn-dark col-1 offset-3 edit-btn">Edit</a>
 
@@ -25,10 +25,12 @@
             <button class="btn btn-dark offset-3 ">Delete</button>
             </form>
         </div>
+        <% } %>
       
-
+        
         <div class="col-8 offset-3">
             <hr>
+            <% if(currUser) { %>
             <h4>Leave a Review</h4>
             <form action="/listings/<%= listing.id %>/reviews" method="POST" novalidate class="mb-3 needs-validation">
                 <div class="mb-3 mt-3">
@@ -45,15 +47,17 @@
                 <button class="btn btn-outline-dark">Submit</button>
                 </div>
             </form>
-
             <hr>
+            <% } %>
+
+
 
             <p><b>All Reviews</b></p>
             <div class="row">
             <% for(review of listing.reviews) { %>
             <div class="card col-5 ms-3 mb-3">
                 <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
+                    <h5 class="card-title"> @<%= review.author.username %> </h5>
                     <p class="card-text">  <%= review.comment %> </p>
                     <p class="card-text">  <%= review.rating %> stars</p>
                     <form class="mb-3" method="POST" action="/listings/<%= listing._id %>/reviews/<%= review._id %>?_method=DELETE ">
