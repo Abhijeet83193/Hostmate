@@ -90,7 +90,7 @@ app.use((req,res,next) => {
 });
 
 
-
+app.locals.MAPTILER_API_KEY = process.env.MAPTILER_API_KEY;
 app.use("/listings", listingRouter);
 app.use("/listings/:id/reviews", reviewRouter);
 app.use("/", userRouter);

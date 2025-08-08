@@ -4,6 +4,7 @@ const Review = require("./review.js");
 const { ref } = require("joi");
 
 const listingSchema = new Schema({
+    
     title: {
         type: String,
         required: true,
@@ -26,6 +27,20 @@ const listingSchema = new Schema({
 
     country: String,
 
+
+     geometry: {
+        type: {
+            type: String,
+            enum: ['Point'],
+            required: true
+        },
+        coordinates: {
+            type: [Number],
+            required: true
+        }
+    },
+
+
     reviews: [
        {
          type: Schema.Types.ObjectId,
@@ -38,7 +53,6 @@ const listingSchema = new Schema({
         type:  Schema.Types.ObjectId,
         ref: "User",
     },
-
 
 
 });

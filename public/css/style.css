@@ -140,4 +140,8 @@ body {
 #map {
     height: 400px;
     width: 80vh;
+    max-width: 100%;
+    border-radius: 15px; 
+    overflow: hidden;  
 }
+

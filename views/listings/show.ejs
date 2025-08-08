@@ -83,6 +83,16 @@
         </div>
 
 
+        <div class="col-6 offset-3 mb-3">
+            <h3>Where you will be</h3>
+            <div id="map"></div>
+        </div>
         
     
 </div>
+
+<script> const listing = <%- JSON.stringify(listing) %>; </script>
+<script> const MAPTILER_API_KEY = "<%= MAPTILER_API_KEY %>"; </script>
+<script src="/js/map.js"></script>
+
+
