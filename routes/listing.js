@@ -22,6 +22,13 @@ router.get('/search', async (req, res) => {
     res.render('listings/index', { allListings: listings });
 });
 
+//Category Route
+router.get('/category/:category', async (req, res) => {
+    const { category } = req.params;
+    const listings = await Listing.find({ category });
+    res.render('listings/index', { allListings: listings });
+});
+
 //index and create
 router.route("/") 
     .get(wrapAsync(listingController.index))
