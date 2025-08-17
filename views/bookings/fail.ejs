@@ -1,0 +1,51 @@
+<% layout("/layouts/boilerplate") %>
+<style>
+    .fail-container {
+        min-height: 60vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .fail-box {
+        background: #fff;
+        padding: 2.5rem 2rem;
+        border-radius: 16px;
+        box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+        min-width: 340px;
+        max-width: 400px;
+        width: 100%;
+        text-align: center;
+    }
+    .fail-box h2 {
+        color: #d9534f;
+        font-weight: 700;
+        margin-bottom: 1rem;
+    }
+    .fail-box p {
+        margin-bottom: 1.5rem;
+        color: #444;
+    }
+    .fail-box a.btn-primary {
+        background: #1997a0;
+        color: #fff;
+        padding: 0.6rem 1.5rem;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: 600;
+        letter-spacing: 1px;
+        transition: background 0.2s;
+        display: inline-block;
+    }
+    .fail-box a.btn-primary:hover {
+        background: #147a80;
+        color: #fff;
+    }
+</style>
+
+<div class="fail-container">
+    <div class="fail-box">
+        <h2>Payment Failed🤑</h2>
+        <p>Your booking for <%= booking.listing.title %> could not be completed.</p>
+        <a href="/bookings/new/<%= booking.listing._id %>" class="btn-primary">Try Again</a>
+    </div>
+</div>

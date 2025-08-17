@@ -1,0 +1,70 @@
+<% layout("/layouts/boilerplate") %>
+<style>
+    .booking-form-container {
+        min-height: 60vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .booking-form-box {
+        background: #fff;
+        padding: 2.5rem 2rem;
+        border-radius: 16px;
+        box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+        min-width: 340px;
+        max-width: 400px;
+        width: 100%;
+    }
+    .booking-form-box h2 {
+        text-align: center;
+        margin-bottom: 1.5rem;
+        font-weight: 600;
+    }
+    .booking-form-box label {
+        display: block;
+        margin-bottom: 1rem;
+        font-weight: 500;
+    }
+    .booking-form-box input[type="date"],
+    .booking-form-box input[type="number"] {
+        width: 100%;
+        padding: 0.5rem;
+        border-radius: 6px;
+        border: 1px solid #ccc;
+        margin-top: 0.3rem;
+        margin-bottom: 0.7rem;
+    }
+    .booking-form-box .btn-primary {
+        width: 100%;
+        padding: 0.6rem;
+        font-size: 1.1rem;
+        border-radius: 8px;
+        background: #1997a0;
+        border: none;
+        font-weight: 600;
+        letter-spacing: 1px;
+    }
+    .booking-form-box .btn-primary:hover {
+        background: #147a80;
+    }
+</style>
+
+<div class="booking-form-container mt-5">
+    <form class="booking-form-box" action="/bookings" method="POST">
+        <h2>Book <%= listing.title %></h2>
+        <input type="hidden" name="listingId" value="<%= listing._id %>">
+        <label>
+            Check-in:
+            <input type="date" name="checkIn" required>
+        </label>
+        <label>
+            Check-out:
+            <input type="date" name="checkOut" required>
+        </label>
+        <label>
+            Guests:
+            <input type="number" name="guests" min="1" value="1" required>
+        </label>
+        <button type="submit" class="btn btn-primary">Proceed to Payment</button>
+</div>
+       

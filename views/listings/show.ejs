@@ -12,6 +12,7 @@
                     <p class="card-text"> &#8377; <%= listing.price.toLocaleString("en-IN") %> / night </p>                     
                     <p class="card-text"> <%= listing.location %> </p>                     
                     <p class="card-text"> <%= listing.country %> </p> 
+                    
             </div>
         </div>
 
@@ -25,6 +26,11 @@
             <button class="btn btn-dark offset-3 ">Delete</button>
             </form>
         </div>
+        <% } else if(currUser) { %>
+        <div class="btns">
+            <a href="/bookings/new/<%= listing._id %>" class="btn btn-success col-1 offset-3">Book Now</a>
+        </div>
+    
         <% } %>
       
 <div class="col-8 offset-3">

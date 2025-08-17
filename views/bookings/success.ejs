@@ -1,0 +1,6 @@
+<% layout("/layouts/boilerplate") %>
+<h2>Booking Successful!</h2>
+<p>Your booking for <%= booking.listing.title %> is confirmed.</p>
+<p>Check-in: <%= booking.checkIn.toDateString() %></p>
+<p>Check-out: <%= booking.checkOut.toDateString() %></p>
+<p>Total Paid: ₹<%= booking.totalPrice %></p>
