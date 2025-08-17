@@ -1,8 +1,5 @@
 # Hostmate 🏠
 
-![GitHub repo size](https://img.shields.io/github/repo-size/username/hostmate)
-![GitHub stars](https://img.shields.io/github/stars/username/hostmate?style=social)
-![GitHub forks](https://img.shields.io/github/forks/username/hostmate?style=social)
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
 ![Tech](https://img.shields.io/badge/tech-MERN%20Stack-green)
 
