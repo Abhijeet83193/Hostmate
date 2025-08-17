@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+const Listing = require("../models/listing");
 const wrapAsync = require("../utils/wrapAsync.js");
 const {isLoggedIn, isOwner, validateListing} = require("../middleware.js");
 const listingController = require("../controllers/listings.js");
@@ -8,6 +9,18 @@ const {storage} = require("../cloudConfig.js");
 const upload = multer({ storage });
 
 
+//Search Route
+router.get('/search', async (req, res) => {
+    const { q } = req.query;
+    const listings = await Listing.find({
+        $or: [
+            { title: { $regex: q, $options: 'i' } },
+            { location: { $regex: q, $options: 'i' } },
+            { country: { $regex: q, $options: 'i' } }
+        ]
+    });
+    res.render('listings/index', { allListings: listings });
+});
 
 //index and create
 router.route("/") 
@@ -25,5 +38,7 @@ router.route("/:id")
 
 //Edit Route 
 router.get("/:id/edit", isLoggedIn, isOwner, wrapAsync(listingController.renderEditForm));
+
+
 
 module.exports= router;
