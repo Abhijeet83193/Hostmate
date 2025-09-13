@@ -86,4 +86,4 @@ This project is licensed under the **MIT License**.
 
 ---
 
-✨ Made with passion by Abhijeet Dhokne ([GitHub](https://github.com/Abhijeet83193) | [LinkedIn](https://www.linkedin.com/in/abhijeet-dhokne-8644a32b3/))
+✨ Made with passion by Abhijeet Dhokne thank you ([GitHub](https://github.com/Abhijeet83193) | [LinkedIn](https://www.linkedin.com/in/abhijeet-dhokne-8644a32b3/))
